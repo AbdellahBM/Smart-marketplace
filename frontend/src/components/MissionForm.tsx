@@ -80,16 +80,16 @@ export default function MissionForm({ onMissionGenerated, onLoadingChange, onErr
     <div className="space-y-8">
       {/* Header */}
       <div className="text-center space-y-3">
-        <h2 className="text-2xl font-bold text-white">Describe Your Mission</h2>
-        <p className="text-white/70">
+        <h2 className="text-2xl font-bold text-gray-900">Describe Your Mission</h2>
+        <p className="text-gray-600">
           Tell us what you need in simple terms - our AI will handle the rest
         </p>
       </div>
 
       {/* Quick Examples */}
       <div className="space-y-4">
-        <h3 className="text-lg font-semibold text-white/90 flex items-center">
-          <svg className="w-5 h-5 mr-2 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <h3 className="text-lg font-semibold text-gray-900 flex items-center">
+          <svg className="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
           Quick Examples
@@ -99,10 +99,10 @@ export default function MissionForm({ onMissionGenerated, onLoadingChange, onErr
             <button
               key={index}
               onClick={() => handleExample(example)}
-              className="glass-card p-4 text-left text-white/80 hover:text-white hover:bg-white/10 transition-all duration-300 text-sm card-hover"
+              className="bg-gray-50 border border-gray-200 rounded-xl p-4 text-left text-gray-700 hover:text-gray-900 hover:bg-gray-100 hover:border-gray-300 transition-all duration-200 text-sm group"
             >
               <div className="flex items-start space-x-3">
-                <div className="w-2 h-2 rounded-full bg-accent-400 mt-2 flex-shrink-0"></div>
+                <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0 group-hover:bg-blue-600"></div>
                 <p>{example}</p>
               </div>
             </button>
@@ -114,8 +114,8 @@ export default function MissionForm({ onMissionGenerated, onLoadingChange, onErr
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* AI Provider Selection */}
         <div className="space-y-3">
-          <label className="text-white font-medium flex items-center">
-            <svg className="w-5 h-5 mr-2 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <label className="text-gray-900 font-medium flex items-center">
+            <svg className="w-5 h-5 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
             </svg>
             AI Provider
@@ -126,17 +126,17 @@ export default function MissionForm({ onMissionGenerated, onLoadingChange, onErr
                 key={aiProvider.value}
                 type="button"
                 onClick={() => setProvider(aiProvider.value)}
-                className={`glass-card p-4 text-left transition-all duration-300 card-hover ${
+                className={`bg-white border rounded-xl p-4 text-left transition-all duration-200 hover:shadow-md ${
                   provider === aiProvider.value 
-                    ? 'bg-primary-500/20 border-primary-400/50 ring-2 ring-primary-400/30' 
-                    : 'hover:bg-white/10'
+                    ? 'border-blue-500 ring-2 ring-blue-200 shadow-md' 
+                    : 'border-gray-200 hover:border-gray-300'
                 }`}
               >
                 <div className="flex items-center space-x-3">
                   <span className="text-2xl">{aiProvider.icon}</span>
                   <div>
-                    <div className="text-white font-medium text-sm">{aiProvider.label}</div>
-                    <div className="text-white/60 text-xs">{aiProvider.description}</div>
+                    <div className="text-gray-900 font-medium text-sm">{aiProvider.label}</div>
+                    <div className="text-gray-500 text-xs">{aiProvider.description}</div>
                   </div>
                 </div>
               </button>
@@ -146,8 +146,8 @@ export default function MissionForm({ onMissionGenerated, onLoadingChange, onErr
 
         {/* Mission Description */}
         <div className="space-y-3">
-          <label htmlFor="mission-input" className="text-white font-medium flex items-center">
-            <svg className="w-5 h-5 mr-2 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <label htmlFor="mission-input" className="text-gray-900 font-medium flex items-center">
+            <svg className="w-5 h-5 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
             </svg>
             Mission Description
@@ -158,15 +158,15 @@ export default function MissionForm({ onMissionGenerated, onLoadingChange, onErr
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="e.g., Need a React developer for e-commerce website, Rabat, 4000DH, remote, 3 months, senior level"
-              className="form-textarea"
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors resize-none text-gray-900 placeholder-gray-400"
               rows={4}
               disabled={isSubmitting}
             />
-            <div className="absolute bottom-3 right-3 text-white/40 text-xs">
+            <div className="absolute bottom-3 right-3 text-gray-400 text-xs">
               {input.length}/500
             </div>
           </div>
-          <p className="text-white/60 text-sm">
+          <p className="text-gray-500 text-sm">
             Include: technology, location, budget, work mode (remote/onsite/hybrid), duration, and experience level
           </p>
         </div>
@@ -175,7 +175,7 @@ export default function MissionForm({ onMissionGenerated, onLoadingChange, onErr
         <button
           type="submit"
           disabled={isSubmitting || !input.trim()}
-          className={`w-full btn-primary relative overflow-hidden group ${
+          className={`w-full px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 relative overflow-hidden group ${
             isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
           } ${!input.trim() ? 'opacity-50 cursor-not-allowed' : ''}`}
         >
@@ -183,7 +183,7 @@ export default function MissionForm({ onMissionGenerated, onLoadingChange, onErr
             {isSubmitting ? (
               <>
                 <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                <span className="loading-dots">Generating mission</span>
+                <span>Generating mission...</span>
               </>
             ) : (
               <>
@@ -194,20 +194,17 @@ export default function MissionForm({ onMissionGenerated, onLoadingChange, onErr
               </>
             )}
           </div>
-          
-          {/* Button ripple effect */}
-          <div className="absolute inset-0 bg-white/10 transform scale-0 group-hover:scale-100 transition-transform duration-500 rounded-xl"></div>
         </button>
 
         {/* Tips */}
-        <div className="glass-card p-4 space-y-3">
-          <h4 className="text-white font-medium flex items-center text-sm">
-            <svg className="w-4 h-4 mr-2 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 space-y-3">
+          <h4 className="text-gray-900 font-medium flex items-center text-sm">
+            <svg className="w-4 h-4 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             Pro Tips
           </h4>
-          <ul className="text-white/70 text-sm space-y-1">
+          <ul className="text-gray-600 text-sm space-y-1">
             <li>• Be specific about technologies (React, Node.js, Python, etc.)</li>
             <li>• Include your preferred location and work mode</li>
             <li>• Mention budget range and project duration</li>
